@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.migor.server</groupId>
+        <artifactId>org.migor.server</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>org.migor.core</artifactId>
+    <packaging>jar</packaging>
+
+     <dependencies>
+
+         <dependency>
+             <groupId>org.codehaus.jackson</groupId>
+             <artifactId>jackson-jaxrs</artifactId>
+             <scope>compile</scope>
+         </dependency>
+
+         <dependency>
+             <groupId>commons-validator</groupId>
+             <artifactId>commons-validator</artifactId>
+             <version>1.4.0</version>
+             <scope>compile</scope>
+         </dependency>
+
+         <dependency>
+             <groupId>org.migor.server</groupId>
+             <artifactId>org.migor.shared</artifactId>
+             <version>1.0-SNAPSHOT</version>
+             <scope>compile</scope>
+         </dependency>
+     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>{0,date,yyyyMMddHHmmss}</format>
+                    <items>
+                        <item>timestamp</item>
+                        <doCheck>false</doCheck>
+                        <doUpdate>false</doUpdate>
+                    </items>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,249 @@
+
+
+
+/* G L O B A L */
+html, body {
+    font-family: Verdana,serif;
+    font-size: 12px;
+    color: #433F38;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+h1 {
+    
+}
+
+/* H E A D E R */
+#migor-titleBar .logo {
+    float: left;
+}
+#migor-titleBar .headline {
+    color: #649C21;
+    float: left;
+    font-size: 30px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    padding-left: 32px;
+    padding-top: 34px;
+    position: relative;
+    width: 600px;
+}
+#migor-titleBar .headline .subHeadline {
+    color: #333333;
+    font-size: 16px;
+    left: 20px;
+    position: relative;
+    top: 10px;
+}
+#migor-titleBar .company {
+    font-size: 11px;
+    font-weight: bold;
+    padding-right: 20px;
+    padding-top: 60px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+/* M E N U */
+#migor-menuBar {
+    background: url("images/ui-bg_highlight-hard_75_e6e6e6_1x100.png") repeat-x scroll 50% 50% #EEEEEE;
+    border: 1px solid #D8DCDF;
+}
+
+/* D I A L O G */
+
+
+ul.service-config {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li.service-config {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+
+/* W I D G E T S */
+
+/* Form */
+
+ul.sortable-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.sortable-list li {
+    display: block;
+    height: 15px;
+    margin: 0;
+    padding: 5px;
+}
+
+p.form-element {
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+p.form-element.ui-state-error {
+    /*padding: 5px 5px 10px 15px;*/
+}
+
+label.form-element {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+textarea.form-element,
+input.form-element,
+select.form-element,
+span.form-element {
+    float: right;
+}
+
+textarea.form-element,
+input.form-element,
+select.form-element,
+span.form-element {
+    float: right;
+}
+
+#form-element-info {
+    height: 85px;
+}
+
+#form-element-info textarea {
+    height: 60px;
+}
+
+img.form-element {
+    position: relative;
+    left: 80px;
+}
+
+hr.dialogDivider {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+input[type=text].form-element,
+textarea.form-element,
+input[type=file].form-element,
+span.form-element,
+select.form-element {
+    width: 240px;
+}
+
+p.form-error-message {
+    text-align: center;
+    margin: 0;
+    padding: 5px 0 5px 0;
+}
+
+p.form-element-error-message {
+    text-align: center;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+
+div.from-error-message {
+    margin: 0 0 10px 115px;
+}
+
+/*Tabs*/
+a.ui-tabs-anchor.closable {
+    margin-right: 10px;
+}
+
+a.ui-tabs-anchor.closable span.ui-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 4px;
+    top: 7px;
+}
+
+
+/*Button*/
+.migor-button {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Titlebar*/
+.ui-titlebar-item {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    float: left;
+}
+
+.ui-titlebar-item.first {
+    padding-left: 1em;
+}
+
+.ui-titlebar-item.last {
+    float: right;
+    padding-right: 1em;
+}
+
+/*Menubar*/
+.ui-menubar {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.ui-menubar-item {
+    float: left;
+}
+
+.ui-menubar .ui-button {
+    float: left;
+    font-weight: normal;
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+    margin: 0;
+    outline: none;
+}
+
+.ui-menubar .ui-menubar-link {
+    border-right: 1px dashed transparent;
+    border-left: 1px dashed transparent;
+}
+
+.ui-menubar .ui-menu {
+    width: 200px;
+    position: absolute;
+    z-index: 9999;
+    font-weight: normal;
+}
+
+
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 40%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
