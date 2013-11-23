@@ -6,8 +6,8 @@
 migor.pageCacheEntries = new function () {
 
     this.options = {
-        "id":'cacheEntries',
-        "closable":true,
+        "id": 'cacheEntries',
+        "closable": true,
         "label": 'Cache Entries',
 
         // function defined in the js client stub
@@ -31,7 +31,7 @@ migor.pageCacheEntries = new function () {
                 }
             }
         );
-        refreshButton.on('click', function() {
+        refreshButton.on('click', function () {
             self.refresh();
         });
         content.append(refreshButton);
@@ -40,10 +40,10 @@ migor.pageCacheEntries = new function () {
 
 
         cacheSelection = $('<select></select>');
-        for (var i=0; i<cacheAreas.length; i++) {
-            cacheSelection.append('<option value="'+cacheAreas[i]+'">'+cacheAreas[i]+'</option> ');
+        for (var i = 0; i < cacheAreas.length; i++) {
+            cacheSelection.append('<option value="' + cacheAreas[i] + '">' + cacheAreas[i] + '</option> ');
         }
-        cacheSelection.on('change', function() {
+        cacheSelection.on('change', function () {
             self.refresh();
         });
 
@@ -59,7 +59,7 @@ migor.pageCacheEntries = new function () {
     };
 
 
-    this.displayDataTable = function(content, data) {
+    this.displayDataTable = function (content, data) {
         var self = this;
 
         table = $('<table width="100%"></table>');
@@ -67,8 +67,8 @@ migor.pageCacheEntries = new function () {
 
         table.dataTable({
             "bServerSide": true,
-            "fnServerData": function(aSource, aoData, successCallback) {
-                migor.rest.request(self.options.funcGetEntries, {"area": cacheSelection.val()}, function(data, totalRecords) {
+            "fnServerData": function (aSource, aoData, successCallback) {
+                migor.rest.request(self.options.funcGetEntries, {"area": cacheSelection.val()}, function (data, totalRecords) {
                     successCallback({aaData: data, iTotalDisplayRecords: totalRecords, iTotalRecords: totalRecords});
                 }, null, true);
             },
@@ -78,17 +78,17 @@ migor.pageCacheEntries = new function () {
             "bFilter": true,
             "bJQueryUI": true,
             "aLengthMenu": migor.configuration.dataTable.aLengthMenu,
-            "iDisplayLength" : migor.configuration.dataTable.iDisplayLength,
+            "iDisplayLength": migor.configuration.dataTable.iDisplayLength,
             "bDestroy": true,
             "oLanguage": migor.configuration.dataTable.oLanguage,
             "aoColumns": [
-                { "mData": "key", sTitle: "Key", sClass:"right", "bSortable": false, "bVisible": true, "sWidth": '100px',
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "key", sTitle: "Key", sClass: "right", "bSortable": false, "bVisible": true, "sWidth": '100px',
+                    "mRender": function (tableData, type, full) {
                         return migor.utils.escapeHtml(tableData);
                     }
                 },
                 { "mData": "value", sTitle: "Value", "bSortable": false, "bVisible": true,
-                    "mRender": function ( tableData, type, full ) {
+                    "mRender": function (tableData, type, full) {
                         return migor.utils.escapeHtml(tableData);
                     }
                 }

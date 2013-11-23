@@ -5,7 +5,7 @@ $.widget("migor.chat", {
     options: {
         endpoint: '/migor/services/client/socket/chat'
     },
-    _create:function () {
+    _create: function () {
         var self = this;
 
 
@@ -13,10 +13,10 @@ $.widget("migor.chat", {
             var endpoint = 'ws://192.168.0.18:8080' + self.options.endpoint;
 
             self.socket = new WebSocket(endpoint);
-            self.socket.onmessage = function(event) {
+            self.socket.onmessage = function (event) {
                 self._onMessage(event.data);
             };
-            self.socket.onerror = function(event) {
+            self.socket.onerror = function (event) {
                 self.element.prepend('<p class="message error">Cannot connect to web socket!!</p>');
             };
         } else {
@@ -24,7 +24,7 @@ $.widget("migor.chat", {
         }
 
     },
-    _destroy: function() {
+    _destroy: function () {
         var self = this;
 
         if (self.socket) {
@@ -32,15 +32,15 @@ $.widget("migor.chat", {
             self.socket = null;
         }
     },
-    _setOptions: function() {
-        this._superApply( arguments );
+    _setOptions: function () {
+        this._superApply(arguments);
     },
-    _onMessage: function(message) {
+    _onMessage: function (message) {
         var self = this;
 
-        self.element.prepend('<p class="message received">'+message+'</p>');
+        self.element.prepend('<p class="message received">' + message + '</p>');
     },
-    send: function(message) {
+    send: function (message) {
         var self = this;
 
         if (self.socket) {

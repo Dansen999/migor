@@ -16,7 +16,6 @@
     </listener>
 
 
-
     <!-- RESTeasy Servlet for generating js client stubs -->
     <servlet>
         <servlet-name>RESTEasy JSAPI</servlet-name>

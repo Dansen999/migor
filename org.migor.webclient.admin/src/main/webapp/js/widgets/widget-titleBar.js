@@ -4,16 +4,16 @@
  *         daniel.scheidle@ucs.at
  *         Unique Computing Solutions GmbH
  */
-(function( $ ) {
+(function ($) {
 
-    $.widget( "hpip.titleBar", {
+    $.widget("hpip.titleBar", {
         options: {
             headline: "Administration",
             subHeadline: "> revision 1",
-            info:""
+            info: ""
         },
 
-        _create: function() {
+        _create: function () {
             var that = this;
 
             var logo = $('<div class="logo"><img height="90px" src="images/gps.gif"></div>');
@@ -33,13 +33,13 @@
             that.element.addClass('header');
         },
 
-        _destroy : function() {
+        _destroy: function () {
             this.element.empty();
         },
 
-        _setOption: function ( key, value ) {
+        _setOption: function (key, value) {
         }
 
     });
 
-}( jQuery ));
+}(jQuery));

@@ -1,7 +1,7 @@
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.migor.shared.enums.CacheArea" %>
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -22,7 +22,7 @@
     <link href="css/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
     <% } else { %>
     <link href="css/migor-comb.min.css" rel="stylesheet" type="text/css"/>
-    <% }  %>
+    <% } %>
 
 
     <%-- ############### JS ############### --%>
@@ -43,8 +43,7 @@
     <script type="text/javascript" src="js/plugins/khtml_all.js"></script>
 
 
-
-        <% if (debug) { %>
+    <% if (debug) { %>
     <script type="text/javascript" src="js/widgets/widget-geoLocation.js"></script>
     <script type="text/javascript" src="js/widgets/widget-components.js"></script>
     <script type="text/javascript" src="js/widgets/widget-titleBar.js"></script>
@@ -65,7 +64,7 @@
     <script type="text/javascript" src="js/pages/page-locationEntries.js"></script>
     <% } else { %>
     <script type="text/javascript" src="js/migor-comb.min.js"></script>
-    <% }  %>
+    <% } %>
     <%-- Widgets --%>
 
     <script type="text/javascript ">
@@ -75,7 +74,7 @@
 
     <!-- EXECUTE INIT SCRIPT -->
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             migor.bootstrap.init();
         });
 
@@ -88,7 +87,7 @@
             // ignore
         }
 
-        cacheAreas = ['<%= CacheArea.USERS %>','<%= CacheArea.LOCATIONS %>','<%= CacheArea.NODE_STATUS %>'];
+        cacheAreas = ['<%= CacheArea.USERS %>', '<%= CacheArea.LOCATIONS %>', '<%= CacheArea.NODE_STATUS %>'];
     </script>
 </head>
 <body>

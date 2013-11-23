@@ -1,4 +1,4 @@
-migor.rest = new function() {
+migor.rest = new function () {
 
     /**
      *
@@ -8,7 +8,7 @@ migor.rest = new function() {
      * @param [validationCallback]
      * @param [loader]
      */
-    this.request = function(restFunc, params, successCallback, validationCallback, loader) {
+    this.request = function (restFunc, params, successCallback, validationCallback, loader) {
 
         if (typeof(restFunc) === 'function') {
 
@@ -17,7 +17,7 @@ migor.rest = new function() {
             }
 
 
-            params["$callback"] = function(code, request, response) {
+            params["$callback"] = function (code, request, response) {
 //                var response = ;
                 if (loader) {
                     $.unblockUI();
@@ -42,7 +42,7 @@ migor.rest = new function() {
                             break;
                     }
                 } else {
-                    migor.dialog.openErrorDialog(code + ': ' +request.responseText);
+                    migor.dialog.openErrorDialog(code + ': ' + request.responseText);
                 }
 
             };
@@ -72,7 +72,7 @@ migor.rest = new function() {
      * @param [invalidFieldsCallback]
      * @param [loader]
      */
-    this.postSubmitJSON = function(url, urlReplacements, formObject, callbackFunction, invalidFieldsCallback, loader) {
+    this.postSubmitJSON = function (url, urlReplacements, formObject, callbackFunction, invalidFieldsCallback, loader) {
         var self = this;
 
 //        self.block();
@@ -81,10 +81,10 @@ migor.rest = new function() {
         }
         formObject.ajaxSubmit({
             type: "POST",
-            url: self.replaceInUrl(url,urlReplacements),
-            dataType:'json',
-            iframe:true,
-            success: function(data) {
+            url: self.replaceInUrl(url, urlReplacements),
+            dataType: 'json',
+            iframe: true,
+            success: function (data) {
                 if (loader) {
                     $.unblockUI();
                 }
@@ -100,7 +100,7 @@ migor.rest = new function() {
                     callbackFunction(data);
                 }
             },
-            error:  function() {
+            error: function () {
                 if (loader) {
                     $.unblockUI();
                 }
@@ -109,7 +109,7 @@ migor.rest = new function() {
         });
     };
 
-    this.generateArgsFromAoData = function(aoData) {
+    this.generateArgsFromAoData = function (aoData) {
 
         var columns = aoData[1].value;
 
@@ -118,12 +118,12 @@ migor.rest = new function() {
         args["span"] = aoData[4].value;
 
 
-        for (var i=5; i<5+columns; i++) {
-            var propIndex = i-5;
+        for (var i = 5; i < 5 + columns; i++) {
+            var propIndex = i - 5;
             var propName = aoData[i].value;
 
-            var searchValue = aoData[7+columns+(propIndex*3)].value;
-            if (aoData[7+columns+(propIndex*3)+2].value == true && searchValue != null && searchValue != '' && searchValue != '~') {
+            var searchValue = aoData[7 + columns + (propIndex * 3)].value;
+            if (aoData[7 + columns + (propIndex * 3) + 2].value == true && searchValue != null && searchValue != '' && searchValue != '~') {
 
                 if (searchValue.indexOf("~") >= 0) {
                     args[propName] = searchValue.split('~');
@@ -141,14 +141,14 @@ migor.rest = new function() {
      * @param urlReplacements
      * @returns {*}
      */
-    this.replaceInUrl = function(url, urlReplacements) {
+    this.replaceInUrl = function (url, urlReplacements) {
         var self = this;
 
         if (urlReplacements == null)
             return url;
         for (var key in urlReplacements) {
             //noinspection JSUnfilteredForInLoop
-            var value= urlReplacements[key];
+            var value = urlReplacements[key];
             if (value == null || value == "") {
                 //noinspection JSUnfilteredForInLoop
                 url = url.replace(key, " ");
@@ -168,31 +168,31 @@ migor.rest = new function() {
      *
      * @param value     string to encode
      */
-    this.urlEncodePathParameter = function(value) {
+    this.urlEncodePathParameter = function (value) {
 
         // be on the safe side
         if (value == null) {
             return null;
         }
-        var _value =''+value;
+        var _value = '' + value;
 
         var encodeMe = {
-            "?":"%3F",
-            "%":"%25",
+            "?": "%3F",
+            "%": "%25",
             "/": "%2F"
         };
-        var result="";
-        for ( var i = 0; i < _value.length; i++ ) {
+        var result = "";
+        for (var i = 0; i < _value.length; i++) {
             result += encodeMe[_value.charAt(i)] == undefined ? _value.charAt(i) : encodeMe[_value.charAt(i)];
         }
         return result;
     };
 
-    this.block = function() {
-        $.blockUI({ message: $('#block'), css: { position:'relative', top:'0px', left:'0px', width:'100%', height:'100%', 'vertical-align':'middle', background: 'none', color: '#fff'} });
+    this.block = function () {
+        $.blockUI({ message: $('#block'), css: { position: 'relative', top: '0px', left: '0px', width: '100%', height: '100%', 'vertical-align': 'middle', background: 'none', color: '#fff'} });
     };
 
-    this.unblock = function() {
+    this.unblock = function () {
         $.unblockUI();
     };
 

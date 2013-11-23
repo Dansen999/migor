@@ -15,13 +15,11 @@ import java.text.SimpleDateFormat;
  */
 @Provider
 @Produces(MediaType.APPLICATION_JSON)
-public class JsonConfiguration implements ContextResolver<ObjectMapper>
-{
+public class JsonConfiguration implements ContextResolver<ObjectMapper> {
     private final ObjectMapper objectMapper;
 
 
-    public JsonConfiguration() throws Exception
-    {
+    public JsonConfiguration() throws Exception {
         this.objectMapper = new ObjectMapper();
 
         this.objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
@@ -29,8 +27,7 @@ public class JsonConfiguration implements ContextResolver<ObjectMapper>
     }
 
 
-    public ObjectMapper getContext(Class<?> objectType)
-    {
+    public ObjectMapper getContext(Class<?> objectType) {
         return objectMapper;
     }
 }

@@ -13,28 +13,28 @@
     <artifactId>org.migor.core</artifactId>
     <packaging>jar</packaging>
 
-     <dependencies>
+    <dependencies>
 
-         <dependency>
-             <groupId>org.codehaus.jackson</groupId>
-             <artifactId>jackson-jaxrs</artifactId>
-             <scope>compile</scope>
-         </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <scope>compile</scope>
+        </dependency>
 
-         <dependency>
-             <groupId>commons-validator</groupId>
-             <artifactId>commons-validator</artifactId>
-             <version>1.4.0</version>
-             <scope>compile</scope>
-         </dependency>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.4.0</version>
+            <scope>compile</scope>
+        </dependency>
 
-         <dependency>
-             <groupId>org.migor.server</groupId>
-             <artifactId>org.migor.shared</artifactId>
-             <version>1.0-SNAPSHOT</version>
-             <scope>compile</scope>
-         </dependency>
-     </dependencies>
+        <dependency>
+            <groupId>org.migor.server</groupId>
+            <artifactId>org.migor.shared</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

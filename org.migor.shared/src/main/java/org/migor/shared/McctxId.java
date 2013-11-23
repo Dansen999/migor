@@ -54,7 +54,7 @@ public class McctxId {
             removeUUIDFromThreadName();
         }
 
-        thread.setName(thread.getName() +"|"+ u);
+        thread.setName(thread.getName() + "|" + u);
     }
 
     /**
@@ -63,7 +63,7 @@ public class McctxId {
     public static void removeUUIDFromThreadName() {
         final Thread temp = Thread.currentThread();
         final String currentName = temp.getName();
-        temp.setName(currentName.substring(0, currentName.length()-37));
+        temp.setName(currentName.substring(0, currentName.length() - 37));
     }
 
 
@@ -120,7 +120,7 @@ public class McctxId {
         path += getBindAddress() + "," + new Date().getTime();
         try {
             while (path.length() > MAX_HEADER_LEN) {
-                path = StringUtils.substring(path, path.indexOf(";") + 1, path.length()-1);
+                path = StringUtils.substring(path, path.indexOf(";") + 1, path.length() - 1);
 
                 if (logger.isDebugEnabled())
                     logger.debug("Host removed - new path: " + path);

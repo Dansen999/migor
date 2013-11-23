@@ -12,5 +12,4 @@ import javax.ws.rs.core.Application;
 public class ServiceApplication extends Application {
 
 
-
 }

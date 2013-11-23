@@ -8,6 +8,7 @@ import java.util.zip.GZIPOutputStream;
 
 /**
  * The type Zip utils.
+ *
  * @author Daniel Scheidle
  *         daniel.scheidle@ucs.at
  *         Unique Computing Solutions GmbH
@@ -34,8 +35,7 @@ public class ZipUtils {
             outputStream = new ByteArrayOutputStream();
             compress(inputStream, outputStream);
             return outputStream.toByteArray();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             throw new Exception(e.getMessage(), e);
         } finally {
             if (outputStream != null) outputStream.close();
@@ -60,8 +60,7 @@ public class ZipUtils {
             outputStream = new ByteArrayOutputStream();
             decompress(inputStream, outputStream);
             return outputStream.toByteArray();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             throw new Exception(e.getMessage(), e);
         } finally {
             if (outputStream != null) outputStream.close();
@@ -73,7 +72,7 @@ public class ZipUtils {
     /**
      * Compress void.
      *
-     * @param inputStream the input stream
+     * @param inputStream  the input stream
      * @param outputStream the output stream
      * @throws java.io.IOException the iO exception
      */
@@ -98,7 +97,7 @@ public class ZipUtils {
     /**
      * Decompress void.
      *
-     * @param inputStream the input stream
+     * @param inputStream  the input stream
      * @param outputStream the output stream
      * @throws java.io.IOException the iO exception
      */

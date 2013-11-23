@@ -4,22 +4,22 @@
  *         daniel.scheidle@ucs.at
  *         Unique Computing Solutions GmbH
  */
-migor.dialog = new function() {
+migor.dialog = new function () {
 
     var _defaultDialogWidth = 420;
 
-    this.openEditor = function(dlgTitle, dlgContent, dlgWidth, okCallback, cancelCallback) {
+    this.openEditor = function (dlgTitle, dlgContent, dlgWidth, okCallback, cancelCallback) {
         _showDialog(
             dlgTitle,
             dlgContent,
             {
-                "Cancel": function() {
+                "Cancel": function () {
                     if (typeof(cancelCallback) === 'function') {
                         cancelCallback.call(this);
                     }
-                    $( this ).dialog( "close" );
+                    $(this).dialog("close");
                 },
-                "Save": function() {
+                "Save": function () {
                     if (typeof(okCallback) === 'function') {
                         okCallback.call(this);
                     }
@@ -28,60 +28,60 @@ migor.dialog = new function() {
 
     };
 
-    this.openWarnDialog = function(message, okCallback, cancelCallback) {
+    this.openWarnDialog = function (message, okCallback, cancelCallback) {
         var messageContent = $('<p style="text-align: center;"></p>').append(message);
         _showDialog(
             "Warning",
             messageContent,
             {
-                "Cancel": function() {
+                "Cancel": function () {
                     if (typeof(cancelCallback) === 'function') {
                         cancelCallback.call(this);
                     }
-                    $( this ).dialog( "close" );
+                    $(this).dialog("close");
                 },
-                "Ok": function() {
+                "Ok": function () {
                     if (typeof(okCallback) === 'function') {
                         okCallback.call(this);
                     }
-                    $( this ).dialog( "close" );
+                    $(this).dialog("close");
                 }
             }, null, "ui-state-highlight", '<span style="float: left; margin-right: .3em;  position: relative;" class="ui-icon ui-icon-info"></span>');
     };
 
-    this.openMessageDialog = function(title, message, closeCallback, width) {
+    this.openMessageDialog = function (title, message, closeCallback, width) {
 
         var messageContent = $('<p style="text-align: center;"></p>').append(message);
         _showDialog(
             title,
             messageContent,
             {
-                "Ok": function() {
+                "Ok": function () {
                     if (typeof(closeCallback) === 'function') {
                         closeCallback.call(this);
                     }
-                    $( this ).dialog( "close" );
+                    $(this).dialog("close");
                 }
             }, width, '', '<span style="float: left; margin-right: .3em; position: relative;" class="ui-icon ui-icon-info"></span>');
     };
 
-    this.openErrorDialog = function(message, closeCallback) {
+    this.openErrorDialog = function (message, closeCallback) {
 
         var messageContent = $('<p style="text-align: center;"></p>').text(message);
         _showDialog(
             'Error',
             messageContent,
             {
-                "Ok": function() {
+                "Ok": function () {
                     if (typeof(closeCallback) === 'function') {
                         closeCallback.call(this);
                     }
-                    $( this ).dialog( "close" );
+                    $(this).dialog("close");
                 }
             }, null, "ui-state-error", '<span style="float: left; margin-right: .3em; position: relative;" class="ui-icon ui-icon-alert"></span>');
     };
 
-    this.openDialog = function(dlgTitle, dlgContent, buttonCfg, dlgWidth, dialogClass, dialogIcon) {
+    this.openDialog = function (dlgTitle, dlgContent, buttonCfg, dlgWidth, dialogClass, dialogIcon) {
         _showDialog(dlgTitle, dlgContent, buttonCfg, dlgWidth, dialogClass, dialogIcon);
     };
 
@@ -89,10 +89,10 @@ migor.dialog = new function() {
 
         var dwidth = dialogWidth ? dialogWidth : _defaultDialogWidth;
 
-        var dialog = _createDialogDiv(dlgTitle );
+        var dialog = _createDialogDiv(dlgTitle);
         dialog.append(content);
 
-        var pos = position?position:'center';
+        var pos = position ? position : 'center';
 
         dialog.dialog(
             {
@@ -101,16 +101,16 @@ migor.dialog = new function() {
                 maxHeight: $("body").height() - 10,
                 autoOpen: true,
                 modal: true,
-                position:pos,
+                position: pos,
                 buttons: buttonCfg,
                 stack: false,
 //                resizable: false,
                 //add custom style classes to dialog container
 //                dialogClass: dialogClass,
-                open: function() {
+                open: function () {
                     dialog.parent().find('.ui-dialog-titlebar').prepend(dialogIcon).addClass(dialogClass);
                 },
-                close: function() {
+                close: function () {
                     $(this).dialog('destroy');
                     $(this).remove();
                 }
@@ -129,6 +129,6 @@ migor.dialog = new function() {
 
     function _createDialogDiv(dialogTitle) {
 
-        return $("<div title=\""+dialogTitle+"\" class='ui_dialog_content ui_widget_content' style='width: auto; min_height: 50px; height: auto; max-height:"+400+"px;'></div>");
+        return $("<div title=\"" + dialogTitle + "\" class='ui_dialog_content ui_widget_content' style='width: auto; min_height: 50px; height: auto; max-height:" + 400 + "px;'></div>");
     }
 };

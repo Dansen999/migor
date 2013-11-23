@@ -12,8 +12,6 @@
     <link href="css/jquery.mobile-1.3.2.min.css?_=<%=buildDate%>" rel="stylesheet" type="text/css"/>
 
 
-
-
     <%-- Plugins --%>
     <script type="text/javascript" src="js/plugin/jquery-1.10.2.js?_=<%=buildDate%>"></script>
     <script type="text/javascript" src="js/plugin/jquery.mobile-1.3.2.js?_=<%=buildDate%>"></script>
@@ -22,15 +20,11 @@
     <script type="text/javascript" src="js/widget/widget-chat.js?_=<%=buildDate%>"></script>
 
 
-
-
-
-
     <!-- EXECUTE INIT SCRIPT -->
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#chat-content').chat();
-            $('#send').on('click', function() {
+            $('#send').on('click', function () {
                 var message = $('#message').val();
                 if (message.length > 0) {
                     $('#chat-content').chat('send', message);

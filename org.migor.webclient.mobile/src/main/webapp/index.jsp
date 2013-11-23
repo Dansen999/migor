@@ -16,14 +16,13 @@
     <script type="text/javascript" src="js/plugin/jquery.mobile-1.3.2.js?_=<%=buildDate%>"></script>
 
 
-
     <!-- EXECUTE INIT SCRIPT -->
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#startButton')
                     .button('disable')
-                    .on('click', function() {
-                        $.mobile.changePage( "chat.jsp", {
+                    .on('click', function () {
+                        $.mobile.changePage("chat.jsp", {
                                     transition: 'fade'
                                 }
                         );
@@ -31,7 +30,7 @@
             );
 
 
-            $('#username').on('change', function(event) {
+            $('#username').on('change', function (event) {
                 if ($('#username').val().length > 2) {
                     $('#startButton').button('enable');
                 } else {
@@ -62,12 +61,13 @@
     </div>
 
     <div id="login-content" data-role="content" style="padding-top: 120px;">
-            <p>
-                <input id="username" type="text" value="" placeholder="Username" />
-            </p>
-            <p>
-                <button id="startButton" data-role="button">Start</button>
-            </p>
+        <p>
+            <input id="username" type="text" value="" placeholder="Username"/>
+        </p>
+
+        <p>
+            <button id="startButton" data-role="button">Start</button>
+        </p>
     </div>
 
 </div>

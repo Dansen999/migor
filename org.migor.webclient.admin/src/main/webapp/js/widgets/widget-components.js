@@ -12,7 +12,7 @@ $(function () {
             label: '',
             clickCallback: null
         },
-        _create: function(){
+        _create: function () {
             var that = this;
 
             // create button link
@@ -28,7 +28,7 @@ $(function () {
             that.element.addClass("hpip-button");
             that.element.append(link);
         },
-        clickAction: function(event) {
+        clickAction: function (event) {
             var that = this;
             if (typeof(that.options.clickCallback) === 'function') {
                 that.options.clickCallback.call(this);

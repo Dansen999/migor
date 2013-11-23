@@ -3,22 +3,22 @@
  *         daniel.scheidle@ucs.at
  *         Unique Computing Solutions GmbH
  */
-migor.utils = new function() {
+migor.utils = new function () {
 
 
-    this.getCities = function(callback) {
+    this.getCities = function (callback) {
         // TODO implement service where only id and name is returned!
         migor.rest.request(CityAdminService.getCities, {}, callback);
     };
 
-    this.getCaches = function(callback) {
+    this.getCaches = function (callback) {
         migor.rest.request(CacheAdminService.getCaches, {}, callback);
     };
 
-    this.escapeHtml = function(string, trimLength) {
+    this.escapeHtml = function (string, trimLength) {
         if (string != null) {
             if (trimLength > 0 && string.length > trimLength) {
-                return $('<div><span' + ' title="' + string + '"'+'>'+string.substring(0,trimLength) + '...'+'</span></div>').html();
+                return $('<div><span' + ' title="' + string + '"' + '>' + string.substring(0, trimLength) + '...' + '</span></div>').html();
             } else {
                 return  $('<div></div>').text(string).html();
             }
@@ -27,7 +27,7 @@ migor.utils = new function() {
         }
     };
 
-    this.replaceString = function(text, string, replaceString) {
+    this.replaceString = function (text, string, replaceString) {
         if (text != null) {
             return text.replace(string, replaceString);
         } else {
@@ -54,7 +54,7 @@ migor.utils = new function() {
      * @param ts        timestamp
      * @return String   a human readable and sortable date representation of the timestamp
      */
-    this.formatTimeStamp = function(ts, displayShort) {
+    this.formatTimeStamp = function (ts, displayShort) {
         if (ts == null || ts <= 0) {
             return "";
         }
@@ -66,9 +66,9 @@ migor.utils = new function() {
         var minute = dateObject.getMinutes();
         var second = dateObject.getSeconds();
         if (!displayShort) {
-            return  year + "-" + (month < 10 ? ("0"+month) : month)+ "-" + (day < 10 ? ("0"+day) : day) + " " + (hour < 10 ? ("0"+hour) : hour) + ":" + (minute < 10 ? ("0"+minute) : minute) + ":" + (second < 10 ? ("0"+second) : second);
+            return  year + "-" + (month < 10 ? ("0" + month) : month) + "-" + (day < 10 ? ("0" + day) : day) + " " + (hour < 10 ? ("0" + hour) : hour) + ":" + (minute < 10 ? ("0" + minute) : minute) + ":" + (second < 10 ? ("0" + second) : second);
         }
-        return year + "-" + (month < 10 ? ("0"+month) : month)+ "-" + (day < 10 ? ("0"+day) : day) + " " + (hour < 10 ? ("0"+hour) : hour) + ":" + (minute < 10 ? ("0"+minute): minute);
+        return year + "-" + (month < 10 ? ("0" + month) : month) + "-" + (day < 10 ? ("0" + day) : day) + " " + (hour < 10 ? ("0" + hour) : hour) + ":" + (minute < 10 ? ("0" + minute) : minute);
     };
 
 

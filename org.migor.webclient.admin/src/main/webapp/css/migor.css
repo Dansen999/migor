@@ -1,9 +1,6 @@
-
-
-
 /* G L O B A L */
 html, body {
-    font-family: Verdana,serif;
+    font-family: Verdana, serif;
     font-size: 12px;
     color: #433F38;
     line-height: 16px;
@@ -17,13 +14,14 @@ html, body {
 }
 
 h1 {
-    
+
 }
 
 /* H E A D E R */
 #migor-titleBar .logo {
     float: left;
 }
+
 #migor-titleBar .headline {
     color: #649C21;
     float: left;
@@ -35,6 +33,7 @@ h1 {
     position: relative;
     width: 600px;
 }
+
 #migor-titleBar .headline .subHeadline {
     color: #333333;
     font-size: 16px;
@@ -42,6 +41,7 @@ h1 {
     position: relative;
     top: 10px;
 }
+
 #migor-titleBar .company {
     font-size: 11px;
     font-weight: bold;
@@ -51,7 +51,6 @@ h1 {
     white-space: nowrap;
 }
 
-
 /* M E N U */
 #migor-menuBar {
     background: url("images/ui-bg_highlight-hard_75_e6e6e6_1x100.png") repeat-x scroll 50% 50% #EEEEEE;
@@ -59,7 +58,6 @@ h1 {
 }
 
 /* D I A L O G */
-
 
 ul.service-config {
     list-style-type: none;
@@ -72,7 +70,6 @@ li.service-config {
     margin: 0;
     padding: 5px;
 }
-
 
 /* W I D G E T S */
 
@@ -136,10 +133,10 @@ img.form-element {
 hr.dialogDivider {
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 input[type=text].form-element,
@@ -162,7 +159,6 @@ p.form-element-error-message {
     padding: 0 0 5px 0;
 }
 
-
 div.from-error-message {
     margin: 0 0 10px 115px;
 }
@@ -178,7 +174,6 @@ a.ui-tabs-anchor.closable span.ui-icon {
     right: 4px;
     top: 7px;
 }
-
 
 /*Button*/
 .migor-button {
@@ -235,15 +230,49 @@ a.ui-tabs-anchor.closable span.ui-icon {
     font-weight: normal;
 }
 
+.ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
 
-.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
-.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
-.ui-timepicker-div dl dd { margin: 0 10px 10px 40%; }
-.ui-timepicker-div td { font-size: 90%; }
-.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+.ui-timepicker-div dl {
+    text-align: left;
+}
 
-.ui-timepicker-rtl{ direction: rtl; }
-.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
-.ui-timepicker-rtl dl dt{ float: right; clear: right; }
-.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
+.ui-timepicker-div dl dt {
+    float: left;
+    clear: left;
+    padding: 0 0 0 5px;
+}
+
+.ui-timepicker-div dl dd {
+    margin: 0 10px 10px 40%;
+}
+
+.ui-timepicker-div td {
+    font-size: 90%;
+}
+
+.ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-timepicker-rtl {
+    direction: rtl;
+}
+
+.ui-timepicker-rtl dl {
+    text-align: right;
+    padding: 0 5px 0 0;
+}
+
+.ui-timepicker-rtl dl dt {
+    float: right;
+    clear: right;
+}
+
+.ui-timepicker-rtl dl dd {
+    margin: 0 40% 10px 10px;
+}

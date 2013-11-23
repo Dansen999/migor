@@ -6,8 +6,8 @@
 migor.pageCustomerConfiguration = new function () {
 
     this.options = {
-        "id":'customerConfig',
-        "closable":true,
+        "id": 'customerConfig',
+        "closable": true,
         "label": 'Customers',
 
         "funcGetEntities": null
@@ -29,7 +29,7 @@ migor.pageCustomerConfiguration = new function () {
                 }
             }
         );
-        refreshButton.on('click', function() {
+        refreshButton.on('click', function () {
             self.refresh(content);
         });
 
@@ -44,12 +44,12 @@ migor.pageCustomerConfiguration = new function () {
     };
 
 
-    this.resizeDataTables = function() {
-        table.parent().css('height', hpip.pageCustomerConfiguration.getRemainingDataTableContentHeight()+"px");
+    this.resizeDataTables = function () {
+        table.parent().css('height', hpip.pageCustomerConfiguration.getRemainingDataTableContentHeight() + "px");
         table.dataTable().fnAdjustColumnSizing();
     };
 
-    this.getRemainingDataTableContentHeight = function() {
+    this.getRemainingDataTableContentHeight = function () {
         // measured height from the top of the page until including the table headers
         var topHeight = 299;
         // measured height of the table footer + 20% buffer for safety
@@ -57,7 +57,7 @@ migor.pageCustomerConfiguration = new function () {
         return $(window).height() - topHeight;
     };
 
-    this.displayDataTable = function(content) {
+    this.displayDataTable = function (content) {
         var self = this;
 
         table = $('<table></table>');
@@ -67,8 +67,8 @@ migor.pageCustomerConfiguration = new function () {
             "sDom": '<"top dataTables_filter"l>rt<"bottom"ip><"clear">',
             "bServerSide": true,
 //            "sAjaxSource": "/hpip",
-            "fnServerData": function(aSource, aoData, successCallback) {
-                hpip.rest.request(self.options.funcGetEntities, hpip.rest.generateArgsFromAoData(aoData), function(data, totalRecords) {
+            "fnServerData": function (aSource, aoData, successCallback) {
+                hpip.rest.request(self.options.funcGetEntities, hpip.rest.generateArgsFromAoData(aoData), function (data, totalRecords) {
                     successCallback({aaData: data, iTotalDisplayRecords: totalRecords, iTotalRecords: totalRecords});
                 });
             },
@@ -84,22 +84,22 @@ migor.pageCustomerConfiguration = new function () {
             "sPaginationType": "full_numbers",
             // use rbt-default number of entries
             "aLengthMenu": hpip.configuration.dataTable.aLengthMenu,
-            "iDisplayLength" : hpip.configuration.dataTable.iDisplayLength,
+            "iDisplayLength": hpip.configuration.dataTable.iDisplayLength,
             "bDestroy": true,
             "oLanguage": hpip.configuration.dataTable.oLanguage,
 
             "aoColumns": [
-                { "mData": "msisdn", sTitle: "MSISDN", sClass:"center", "bSortable": false,
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "msisdn", sTitle: "MSISDN", sClass: "center", "bSortable": false,
+                    "mRender": function (tableData, type, full) {
                         return hpip.utils.escapeHtml(tableData);
                     }
                 },
-                { "mData": "businessAccount", sTitle: "Business Account", sClass:"left", "bSortable": false,
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "businessAccount", sTitle: "Business Account", sClass: "left", "bSortable": false,
+                    "mRender": function (tableData, type, full) {
                         if (tableData) {
                             return 'License plate: ' + hpip.utils.escapeHtml(tableData.licensePlate) + '<br/>' +
-                                'City id: ' +  hpip.utils.escapeHtml(tableData.cityId) + '<br/>' +
-                                'Remaining minutes: '  + hpip.utils.escapeHtml(tableData.remainingMinutes) + '<br/>' +
+                                'City id: ' + hpip.utils.escapeHtml(tableData.cityId) + '<br/>' +
+                                'Remaining minutes: ' + hpip.utils.escapeHtml(tableData.remainingMinutes) + '<br/>' +
                                 'Remaining Eurocents: ' + hpip.utils.escapeHtml(tableData.remainingEuroCents)
                                 ;
                         } else {
@@ -108,12 +108,12 @@ migor.pageCustomerConfiguration = new function () {
                     }
                 },
 
-                { "mData": "privateAccount", sTitle: "Private Account", sClass:"left", "bSortable": false,
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "privateAccount", sTitle: "Private Account", sClass: "left", "bSortable": false,
+                    "mRender": function (tableData, type, full) {
                         if (tableData) {
                             return 'License plate: ' + hpip.utils.escapeHtml(tableData.licensePlate) + '<br/>' +
-                                'City id: ' +  hpip.utils.escapeHtml(tableData.cityId) + '<br/>' +
-                                'Remaining minutes: '  + hpip.utils.escapeHtml(tableData.remainingMinutes) + '<br/>' +
+                                'City id: ' + hpip.utils.escapeHtml(tableData.cityId) + '<br/>' +
+                                'Remaining minutes: ' + hpip.utils.escapeHtml(tableData.remainingMinutes) + '<br/>' +
                                 'Remaining Eurocents: ' + hpip.utils.escapeHtml(tableData.remainingEuroCents)
                                 ;
                         } else {
@@ -121,8 +121,8 @@ migor.pageCustomerConfiguration = new function () {
                         }
                     }
                 },
-                { "mData": "modifiedAt", sTitle: "Modified At", sClass:"center", "bSortable": true,
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "modifiedAt", sTitle: "Modified At", sClass: "center", "bSortable": true,
+                    "mRender": function (tableData, type, full) {
                         return hpip.utils.escapeHtml(tableData);
                     }
                 }

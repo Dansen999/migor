@@ -1,6 +1,6 @@
 migor.bootstrap = new function () {
 
-    this.init = function() {
+    this.init = function () {
         var self = this;
 //        $('body').addClass('ui-widget');
 
@@ -11,25 +11,23 @@ migor.bootstrap = new function () {
         $('#migor-titleBar').titleBar({
             headline: "Migor - Administration",
             subHeadline: '> Version ' + version + ' Revision ' + buildNumber,
-            info:$('<span></span>').geoLocation()
+            info: $('<span></span>').geoLocation()
         });
 
 
         var menuSettings = [
             {
                 "label": 'System',
-                "menus":
-                    [
-                        {page: migor.pageNodeStatus},
-                        {page: migor.pageCacheEntries}
-                    ]
+                "menus": [
+                    {page: migor.pageNodeStatus},
+                    {page: migor.pageCacheEntries}
+                ]
             },
             {
                 "label": 'Location',
-                "menus":
-                    [
-                        {page: migor.pageLocationEntries}
-                    ]
+                "menus": [
+                    {page: migor.pageLocationEntries}
+                ]
             }
         ];
 
@@ -41,7 +39,7 @@ migor.bootstrap = new function () {
 
         var menuItem = $('<li></li>');
         var menuItemLink = $('<a href="#">About</a>');
-        menuItemLink.click(function() {
+        menuItemLink.click(function () {
             migor.dialog.openMessageDialog('About', '<span style="color: #649C21; font-size: 20px; font-family: A1TelekomMedium;">Migor</span></br><span style="margin-top: 10px; font-family: A1TelekomMedium;">Version ' + version + ' Revision ' + buildNumber + '</span></br></br><span style="font-size: 8px;">build on</span></br><span>' + timestamp + '</span>');
         });
 
@@ -59,23 +57,23 @@ migor.bootstrap = new function () {
 
     };
 
-    this.appendMenus = function(container, settings) {
+    this.appendMenus = function (container, settings) {
         var self = this;
-        $.each(settings, function(index, m){
+        $.each(settings, function (index, m) {
             var item;
             var itemContainer;
 
             if (m.menus != null) {
-                item = $('<a href="#">'+m.label+'</a>');
+                item = $('<a href="#">' + m.label + '</a>');
                 var subMenu = $('<ul></ul>');
                 self.appendMenus(subMenu, m.menus);
 
                 itemContainer = $('<li></li>');
                 itemContainer.append(item);
                 itemContainer.append(subMenu);
-            } else if (m.page != null ) {
-                item = $('<a href="#">'+m.page.options.label+'</a>');
-                item.click(function() {
+            } else if (m.page != null) {
+                item = $('<a href="#">' + m.page.options.label + '</a>');
+                item.click(function () {
                     migor.bootstrap.open(m.page);
 
                 });
@@ -86,24 +84,24 @@ migor.bootstrap = new function () {
         });
     };
 
-    this.open = function(page, argument) {
+    this.open = function (page, argument) {
         var id = page.options.id;
         var tab = $('#migor-content');
 
-        var content = tab.find('#'+id);
+        var content = tab.find('#' + id);
 
         if (content.length == 0) {
             // create new tab
-            var header = $('<a href="#'+id+'">'+page.options.label+'</a>');
-            var newContent = $('<div id="'+id+'" class="ui-tabs-panel ui-widget-content ui-corner-bottom"></div>');
+            var header = $('<a href="#' + id + '">' + page.options.label + '</a>');
+            var newContent = $('<div id="' + id + '" class="ui-tabs-panel ui-widget-content ui-corner-bottom"></div>');
 
             if (page.options.closable) {
                 var closeButton = $('<span class="ui-icon ui-icon-close"></span>');
                 //noinspection JSUnusedLocalSymbols
-                closeButton.click(function(event) {
+                closeButton.click(function (event) {
                     header.parent().remove();
                     newContent.remove();
-                    tab.tabs( "refresh" );
+                    tab.tabs("refresh");
                 });
                 header.append(closeButton);
                 header.addClass('closable');
@@ -116,13 +114,13 @@ migor.bootstrap = new function () {
             page.init(newContent, argument);
 
             // refresh
-            tab.tabs( "refresh" );
+            tab.tabs("refresh");
         } else {
             // refresh tab content
             page.refresh(content, argument);
         }
         // Activate current tab
-        var index = tab.find('a[href="#'+id+'"]').parent().index();
+        var index = tab.find('a[href="#' + id + '"]').parent().index();
         tab.tabs('option', 'active', index);
     };
 };

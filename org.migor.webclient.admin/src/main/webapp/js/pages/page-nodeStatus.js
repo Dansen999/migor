@@ -6,8 +6,8 @@
 migor.pageNodeStatus = new function () {
 
     this.options = {
-        "id":'nodeStatus',
-        "closable":true,
+        "id": 'nodeStatus',
+        "closable": true,
         "label": 'Status',
 
         // function defined in the js client stub
@@ -30,7 +30,7 @@ migor.pageNodeStatus = new function () {
                 }
             }
         );
-        refreshButton.on('click', function() {
+        refreshButton.on('click', function () {
             self.refresh();
         });
         content.append(refreshButton);
@@ -44,7 +44,7 @@ migor.pageNodeStatus = new function () {
     };
 
 
-    this.displayDataTable = function(content, data) {
+    this.displayDataTable = function (content, data) {
         var self = this;
 
         table = $('<table width="100%"></table>');
@@ -52,8 +52,8 @@ migor.pageNodeStatus = new function () {
 
         table.dataTable({
             "bServerSide": true,
-            "fnServerData": function(aSource, aoData, successCallback) {
-                migor.rest.request(self.options.funcGetEntries, {}, function(data, totalRecords) {
+            "fnServerData": function (aSource, aoData, successCallback) {
+                migor.rest.request(self.options.funcGetEntries, {}, function (data, totalRecords) {
                     successCallback({aaData: data, iTotalDisplayRecords: totalRecords, iTotalRecords: totalRecords});
                 }, null, true);
             },
@@ -63,22 +63,22 @@ migor.pageNodeStatus = new function () {
             "bFilter": true,
             "bJQueryUI": true,
             "aLengthMenu": migor.configuration.dataTable.aLengthMenu,
-            "iDisplayLength" : migor.configuration.dataTable.iDisplayLength,
+            "iDisplayLength": migor.configuration.dataTable.iDisplayLength,
             "bDestroy": true,
             "oLanguage": migor.configuration.dataTable.oLanguage,
             "aoColumns": [
-                { "mData": "id", sTitle: "Node", sClass:"right", "bSortable": false, "bVisible": true,
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "id", sTitle: "Node", sClass: "right", "bSortable": false, "bVisible": true,
+                    "mRender": function (tableData, type, full) {
                         return migor.utils.escapeHtml(tableData);
                     }
                 },
-                { "mData": "startedAt", sTitle: "Started At", sClass:"center", "bSortable": false, "bVisible": true, "sWidth": '250px',
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "startedAt", sTitle: "Started At", sClass: "center", "bSortable": false, "bVisible": true, "sWidth": '250px',
+                    "mRender": function (tableData, type, full) {
                         return migor.utils.escapeHtml(tableData);
                     }
                 },
-                { "mData": "lastModifiedAt", sTitle: "Last Modified At", sClass:"center", "bSortable": false, "bVisible": true, "sWidth": '250px',
-                    "mRender": function ( tableData, type, full ) {
+                { "mData": "lastModifiedAt", sTitle: "Last Modified At", sClass: "center", "bSortable": false, "bVisible": true, "sWidth": '250px',
+                    "mRender": function (tableData, type, full) {
                         return migor.utils.escapeHtml(tableData);
                     }
                 }

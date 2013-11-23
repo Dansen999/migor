@@ -6,7 +6,7 @@
 migor = {};
 migor.configuration = {
     dataTable: {
-        aLengthMenu : [100,500,1000],
+        aLengthMenu: [100, 500, 1000],
         iDisplayLength: 100,
         oLanguage: {
             "sInfo": "_START_ to _END_ (Total: _TOTAL_ entries)",

@@ -27,29 +27,29 @@ public class GenericParser {
                 return null;
             } else if (clazz.isPrimitive()) {
                 if (clazz.toString().equals("float")) {
-                    return (T)Float.valueOf(value);
+                    return (T) Float.valueOf(value);
                 } else if (clazz.toString().equals("double")) {
-                    return (T)Double.valueOf(value);
+                    return (T) Double.valueOf(value);
                 } else if (clazz.toString().equals("long")) {
-                    return (T)Long.valueOf(value);
+                    return (T) Long.valueOf(value);
                 } else if (clazz.toString().equals("int")) {
-                    return (T)Integer.valueOf(value);
+                    return (T) Integer.valueOf(value);
                 } else if (clazz.toString().equals("boolean")) {
-                    return (T)Boolean.valueOf(value);
+                    return (T) Boolean.valueOf(value);
                 }
             } else if (clazz.equals(Boolean.class)) {
-                return (T)Boolean.valueOf(value);
+                return (T) Boolean.valueOf(value);
             } else if (clazz.equals(Long.class)) {
-                return (T)Long.valueOf(value);
+                return (T) Long.valueOf(value);
             } else if (clazz.equals(Integer.class)) {
-                return (T)Integer.valueOf(value);
+                return (T) Integer.valueOf(value);
             } else if (clazz.equals(Double.class)) {
-                return (T)Double.valueOf(value);
-            } else if (clazz.equals( Float.class )) {
-                return (T)Float.valueOf(value);
-            } else if (clazz.equals( Date.class )) {
+                return (T) Double.valueOf(value);
+            } else if (clazz.equals(Float.class)) {
+                return (T) Float.valueOf(value);
+            } else if (clazz.equals(Date.class)) {
                 try {
-                    return (T)(new SimpleDateFormat(getDateFormatPattern()).parse(value));
+                    return (T) (new SimpleDateFormat(getDateFormatPattern()).parse(value));
                 } catch (Exception t) {
                     throw new RuntimeException("Failed to parse date: " + t.getMessage());
                 }
@@ -57,17 +57,17 @@ public class GenericParser {
                 Object[] defined_values = clazz.getEnumConstants();
                 for (Object t : defined_values) {
                     if (t.toString().equalsIgnoreCase(value)) {
-                        return (T)t;
+                        return (T) t;
                     }
                 }
-                throw new RuntimeException("Unable to convert: Defined value "+value+" is not an option of "+clazz.toString());
+                throw new RuntimeException("Unable to convert: Defined value " + value + " is not an option of " + clazz.toString());
             } else if (clazz.isAssignableFrom(Parsable.class)) {
                 return (T) ((Parsable) clazz.newInstance()).parse(value);
             } else if (clazz.isAssignableFrom(String.class)) {
-                return (T)value;
+                return (T) value;
             }
 
-            throw new ParseException("Type can not by cast by this method: "+clazz.toString());
+            throw new ParseException("Type can not by cast by this method: " + clazz.toString());
         } catch (ParseException e) {
             throw e;
         } catch (Exception t) {
@@ -75,7 +75,7 @@ public class GenericParser {
         }
     }
 
-    @SuppressWarnings( "unchecked" )
+    @SuppressWarnings("unchecked")
     public static <T> T[] parseArray(Class<T> clazz, String value) throws ParseException {
         try {
             String[] values = value.split(getArrayDelimiter());
@@ -95,7 +95,7 @@ public class GenericParser {
         return dateFormatPattern;
     }
 
-    public static void setDateFormatPattern( final String newDateFormatPattern ) {
+    public static void setDateFormatPattern(final String newDateFormatPattern) {
         dateFormatPattern = newDateFormatPattern;
     }
 
@@ -103,7 +103,7 @@ public class GenericParser {
         return arrayDelimiter;
     }
 
-    public static void setArrayDelimiter( final String newArrayDelimiter ) {
+    public static void setArrayDelimiter(final String newArrayDelimiter) {
         arrayDelimiter = newArrayDelimiter;
     }
 }

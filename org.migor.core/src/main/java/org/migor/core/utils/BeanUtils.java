@@ -25,11 +25,11 @@ public class BeanUtils {
      * This method does NOT work on interfaces.
      *
      * @param instanceClass the bean class.
-     * @param <T> generic type of the bean.
+     * @param <T>           generic type of the bean.
      * @return injected bean.
      * @throws javax.naming.NamingException if lookup for the BeanManager fails
      */
-    @SuppressWarnings( "unchecked" )
+    @SuppressWarnings("unchecked")
     public static <T> T get(@NotNull final Class<T> instanceClass) throws NamingException {
         BeanManager beanManager = getBeanManager();
 
@@ -38,13 +38,12 @@ public class BeanUtils {
         CreationalContext<Object> context = beanManager.createCreationalContext(null);
         Object instance = injectionTarget.produce(context);
         injectionTarget.inject(instance, context);
-        injectionTarget.postConstruct( instance );
+        injectionTarget.postConstruct(instance);
 
         return (T) instance;
     }
 
     /**
-     *
      * @return BeanManager
      * @throws javax.naming.NamingException
      */

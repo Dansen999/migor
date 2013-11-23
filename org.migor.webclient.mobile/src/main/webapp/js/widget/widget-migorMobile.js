@@ -5,7 +5,7 @@ $.widget("migor.mobile", {
     options: {
 
     },
-    _create:function () {
+    _create: function () {
         var self = this;
 
         if (!self.user) {
@@ -20,8 +20,8 @@ $.widget("migor.mobile", {
         }
 
     },
-    _setOptions: function() {
-        this._superApply( arguments );
+    _setOptions: function () {
+        this._superApply(arguments);
     }
 });
 
