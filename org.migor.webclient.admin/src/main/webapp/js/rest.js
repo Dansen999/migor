@@ -1,4 +1,4 @@
-migor.rest = new function () {
+rest = new function () {
 
     /**
      *
@@ -42,7 +42,7 @@ migor.rest = new function () {
                             break;
                     }
                 } else {
-                    migor.dialog.openErrorDialog(code + ': ' + request.responseText);
+                    //dialog.openErrorDialog(code + ': ' + request.responseText);
                 }
 
             };

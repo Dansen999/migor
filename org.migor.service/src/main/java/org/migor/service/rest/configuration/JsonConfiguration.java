@@ -1,4 +1,4 @@
-package org.migor.service.configuration;
+package org.migor.service.rest.configuration;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;

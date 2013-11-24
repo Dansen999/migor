@@ -19,7 +19,6 @@ public class Response {
     @JsonProperty("message")
     public String message;
 
-    //TODO format with timezone
     @JsonProperty("timestamp")
     public Date timestamp = new Date();
 
@@ -36,11 +35,11 @@ public class Response {
     }
 
     public static Response ok() {
-        return new Response(StatusCode.OK, null, null);
+        return new Response(StatusCode.OK, StatusCode.OK.getMessage(), null);
     }
 
     public static Response ok(@NotNull final Object content) {
-        return new Response(StatusCode.OK, null, content);
+        return new Response(StatusCode.OK, StatusCode.OK.getMessage(), content);
     }
 
     public static Response error(@NotNull final String message) {

@@ -7,3 +7,16 @@
     bottom: 0;
     left: 0;
 }
+
+#chat-content .userName {
+    font-style: normal;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#chat-content .userName.own {
+    font-style: normal;
+    font-weight: bold;
+    font-size: larger;
+    color: #00415e;
+}

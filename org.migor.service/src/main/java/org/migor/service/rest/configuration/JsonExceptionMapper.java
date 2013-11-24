@@ -1,4 +1,4 @@
-package org.migor.service.configuration;
+package org.migor.service.rest.configuration;
 
 import org.apache.log4j.Logger;
 import org.migor.core.MigorException;

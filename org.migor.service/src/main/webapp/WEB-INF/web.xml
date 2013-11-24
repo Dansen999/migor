@@ -24,6 +24,6 @@
 
     <servlet-mapping>
         <servlet-name>RESTEasy JSAPI</servlet-name>
-        <url-pattern>/rest/js</url-pattern>
+        <url-pattern>/rest/rest.js</url-pattern>
     </servlet-mapping>
 </web-app>
